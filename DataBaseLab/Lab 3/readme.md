@@ -1,3 +1,2 @@
 ##Queries for Lab 3  
-<br>
 Coming Soon ...
