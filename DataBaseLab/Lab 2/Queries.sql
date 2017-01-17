@@ -1,0 +1,18 @@
+select name,dept_name from student1;
+select name from instructor where dept_name='Comp. Sci.';
+select title from course where dept_name='Comp. Sci.' and credits=3;
+select course.course_id,title from course,takes where id='12345' and course.course_id=takes.course_id;
+select name from instructor where salary between 40000 and 90000;
+update advisor set i_id=10101 where s_id between 10000 and 20000;
+update instructor set dept_name='Comp. Sci.' where dept_name='Biology';
+update instructor set salary=salary*1.05;
+delete from instructor where dept_name='History';
+delete from prereq where course_id='BIO-301';
+delete from course where course_id not in (select course_id from teaches);
+alter table student1 add (dob date);
+alter table student1 modify (dept_name varchar(20));
+alter table student1 drop column dob;
+select id from instructor where id not in (select id from teaches);
+select name,takes.course_id,title as c_name from takes,student1,course where takes.id=student1.id and takes.course_id=course.course_id and year=2009;
+select distinct t.name, t.salary as inst_salary from instructor t, instructor s where t.salary>s.salary and s.dept_name='Comp. Sci.' ;
+select name from instructor where dept_name like '%om%';
