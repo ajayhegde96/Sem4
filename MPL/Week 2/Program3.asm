@@ -10,7 +10,7 @@
  +lea si,a
  +lea di,b
  +lea bx,res
- +mov bx,[si]
+ +mov ax,[si]
  +mul word ptr[di]
  +mov [bx],ax
  +mov [bx+2],dx
