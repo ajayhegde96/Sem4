@@ -1,0 +1,51 @@
+Data redundancy and inconsistency.
+ Since different programmers create
+the files and application programs over a long period, the various files are
+likely to have different structures and the programs may bewritten in several
+programming languages. Moreover, the same information may be duplicated
+in several places (files). For example, if a student has a double major (say,
+music and mathematics) the address and telephone number of that student
+may appear in a file that consists of student records of students in the Music
+department and in a file that consists of student records of students in the
+Mathematics department. This redundancy leads to higher storage and access
+cost. In addition, it may lead to data inconsistency; that is, the various copies
+of the same datamayno longer agree. For example, a changed student address
+may be reflected in the Music department records but not elsewhere in the
+system.
+• Difficulty in accessing data. 
+Suppose that one of the university clerks needs
+to find out the names of all students who live within a particular postal-code
+area. The clerk asks the data-processing department to generate such a list.
+Because the designers of the original system did not anticipate this request,
+there is no application program on hand to meet it. There is, however, an
+application program to generate the list of all students. The university clerk
+has now two choices: either obtain the list of all students and extract the
+needed information manually or ask a programmer to write the necessary
+application program. Both alternatives are obviously unsatisfactory. Suppose
+that such a program is written, and that, several days later, the same clerk
+needs to trim that list to include only those students who have taken at least
+60 credit hours. As expected, a program to generate such a list does not
+exist. Again, the clerk has the preceding two options, neither of which is
+satisfactory.
+The point here is that conventional file-processing environments do not
+allow needed data to be retrieved in a convenient and efficientmanner. More
+responsive data-retrieval systems are required for general use.
+• Data isolation. 
+Because data are scattered in various files, and files may
+be in different formats, writing new application programs to retrieve the
+appropriate data is difficult.
+• Integrity problems. 
+The data values stored in the database must satisfy certain
+types of consistency constraints. Suppose the university maintains an
+account for each department, and records the balance amount in each account.
+Suppose also that the university requires that the account balance of a
+department may never fall below zero. Developers enforce these constraints
+in the system by adding appropriate code in the various application programs.
+However, when new constraints are added, it is difficult to change
+the programs to enforce them. The problem is compoundedwhen constraints
+involve several data items from different files.
+• Security problems. Not every user of the database system should be able
+to access all the data. For example, in a university, payroll personnel need
+to see only that part of the database that has financial information. They do
+not need access to information about academic records. But, since application
+programs are added to the file-processing system in an ad hoc manner,enforcing such security constraints is difficult.

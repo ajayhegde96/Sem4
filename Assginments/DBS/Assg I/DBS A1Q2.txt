@@ -1,0 +1,40 @@
+iii)select name
+from instructor
+where salary > some (select salary
+from instructor
+where dept name = ’Biology’);
+The subquery:
+(select salary
+from instructor
+where dept name = ’Biology’)
+generates the set of all salary values of all instructors in the Biology department.
+The > some comparison in the where clause of the outer select is true if the salary
+value of the tuple is greater than at least one member of the set of all salary values
+for instructors in Biology.
+
+ii)select dept name, avg (salary) as avg salary
+from instructor
+group by dept name
+having avg (salary) > 42000;
+This condition does not
+apply to a single tuple; rather, it applies to each group constructed by the group
+by clause.
+As was the case for the select clause, any attribute that is present in the having
+clause without being aggregated must appear in the group by clause, otherwise
+the query is treated as erroneous.
+
+i)Pattern matching can be performed on strings, using the operator like. We
+describe patterns by using two special characters:
+• Percent (%): The % character matches any substring.
+• Underscore ( ): The character matches any character.
+Patterns are case sensitive; that is, uppercase characters do not match lowercase
+characters, or vice versa
+
+iv)select dept name, avg salary
+from (select dept name, avg (salary) as avg salary
+from instructor
+group by dept name)
+where avg salary > 42000;
+The subquery generates a relation consisting of the names of all departments and
+their corresponding average instructors’ salaries. The attributes of the subquery
+result can be used in the outer query
